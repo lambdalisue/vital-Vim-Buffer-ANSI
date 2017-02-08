@@ -1,9 +1,9 @@
 *Vital/Vim/Buffer/ANSI.txt*		Highlight ANSI color sequences
 
-Version: 0.1.0
+Version: 0.1.0-dev
 Author : Alisue <lambdalisue@hashnote.net>
 License: MIT license
-Support: Vim 8.0.0134 and above
+Support: Vim 7.3.429 and above
 Support: Neovim 0.1.7 and above
 
 
@@ -29,7 +29,6 @@ USAGE					*Vital.Vim.Buffer.ANSI-usage*
       new
       call append(0, content)
       call s:ANSI.define_syntax()
-      setlocal conceallevel=3 concealcursor=nvi
     endfunction
 
     call s:demo()
@@ -41,8 +40,8 @@ FUNCTIONS				*Vital.Vim.Buffer.ANSI-functions*
 				*Vital.Vim.Buffer.ANSI.define_syntax()*
 define_syntax([{prefix}])
 	Define |syntax| for ANSI color sequences.
-	Note taht 'conceallevel' and 'concealcursor' options requires to be
-	configured properly (see usage above.)
+	Note taht 'conceallevel' and 'concealcursor' options will be
+	configured automatically.
 
 	It defines the following syntaxes.
 
