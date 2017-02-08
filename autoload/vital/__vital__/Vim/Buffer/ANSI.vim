@@ -8,6 +8,22 @@ function! s:_vital_created(module) abort
         \ '35':   'AnsiColor5',
         \ '36':   'AnsiColor6',
         \ '37':   'AnsiColor7',
+        \ '0;30': 'AnsiColor0',
+        \ '0;31': 'AnsiColor1',
+        \ '0;32': 'AnsiColor2',
+        \ '0;33': 'AnsiColor3',
+        \ '0;34': 'AnsiColor4',
+        \ '0;35': 'AnsiColor5',
+        \ '0;36': 'AnsiColor6',
+        \ '0;37': 'AnsiColor7',
+        \ '30;1': 'AnsiColor0',
+        \ '31;1': 'AnsiColor1',
+        \ '32;1': 'AnsiColor2',
+        \ '33;1': 'AnsiColor3',
+        \ '34;1': 'AnsiColor4',
+        \ '35;1': 'AnsiColor5',
+        \ '36;1': 'AnsiColor6',
+        \ '37;1': 'AnsiColor7',
         \ '1;30': 'AnsiColor8',
         \ '1;31': 'AnsiColor9',
         \ '1;32': 'AnsiColor10',
@@ -60,7 +76,7 @@ function! s:define_syntax(...) abort
         \)
   for [code, name] in items(s:COLORS)
     execute printf(
-          \ 'syn region %s%s contains=%s keepend start=/\e\[%sm/ end=/\e\[m/',
+          \ 'syn region %s%s contains=%s keepend start=/\e\[%sm/ end=/\e\[0?m/',
           \ prefix, name, 'AnsiSuppress', code
           \)
     execute printf(
@@ -68,4 +84,5 @@ function! s:define_syntax(...) abort
           \ prefix, prefix, name
           \)
   endfor
+  setlocal conceallevel=3 concealcursor=nvic
 endfunction
